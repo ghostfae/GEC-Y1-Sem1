@@ -1,14 +1,12 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
-using std::setw;
 
-int printInv(int x, string y[])
+void printInv(int x, string y[])
 {
     cout << "Your current inventory contains:" << endl;
     for (int i = 0; i < x; i++)
-        cout << ""; // TODO: fix this
-    return 0;
+        cout << y[i] << "\n";
 }
 
 int main()
@@ -20,35 +18,37 @@ int main()
     inventory[numItems++] = "battle axe";
     inventory[numItems++] = "healing potion";
     inventory[numItems++] = "dagger";
-    for (int i = 0; i < 4; i++)
-        cout << inventory[i] << "\n";
 
     string userInput;
-    cout << "Your current inventory contains: " << endl;
-
+    printInv(MAX_ITEMS, inventory);
+    cout << "\n";
     cout << "You have found a wizard's staff." << endl;
+    cout << "\n";
     cout << "Would you like to replace your dagger with this staff?" << endl;
     cout << "Please type 'yes' or 'no'." << endl;
     cin >> userInput;
 
     bool userLoop = true;
 
+    
     while(userLoop)
     {
         if (userInput == "yes" || userInput == "Yes" || userInput == "y" || userInput == "Y")
         {
-            inventory[3] = "wizard staff";
+            inventory[3] = "wizard's staff";
+            cout << "\n";
             cout << "You have discarded your dagger and picked up the staff." << endl;
-            cout << "Your current inventory contains: " << endl;
-
+            cout << "\n";
+            printInv(MAX_ITEMS, inventory);
             userLoop = false;
         }
 
         else if (userInput == "no" || userInput == "No" || userInput == "n" || userInput == "No")
         {
+            cout << "\n";
             cout << "You have left the staff behind." << endl;
-            cout << "Your current inventory contains: " << endl;
-
+            cout << "\n";
+            printInv(MAX_ITEMS, inventory);
             userLoop = false;
         }
 
@@ -58,6 +58,4 @@ int main()
             cin >> userInput;
         }
     }
-
-
 }
