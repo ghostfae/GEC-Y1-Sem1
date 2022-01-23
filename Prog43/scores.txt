@@ -1,0 +1,10 @@
+kat 45
+kit 50
+doug 70
+xyz 78
+han 25
+pat 84
+pit 100
+pug 62
+xyz 999
+pan 25
